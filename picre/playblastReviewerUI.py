@@ -46,10 +46,13 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
         self.set_movies_root()
 
         # SIGNALS
-        self.wgReviewer.btn_refresh.clicked.connect(self.refresh_playblasts)
+        #self.wgReviewer.btn_refresh.clicked.connect(self.refresh_playblasts)
         self.wgReviewer.tw_playblastsTree.itemChanged.connect(self.handle_item_changed)
         self.wgReviewer.btn_createContextReview.clicked.connect(self.press_create_context_review)
         self.wgReviewer.btn_help.clicked.connect(self.press_help)
+
+        # Populate the tree immediately
+        self.refresh_playblasts()
 
         # SHOW the UI
         self.wgReviewer.show()

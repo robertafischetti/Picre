@@ -6,20 +6,26 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>480</width>
-    <height>427</height>
+    <width>606</width>
+    <height>358</height>
    </rect>
   </property>
   <property name="sizePolicy">
-   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+   <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
     <horstretch>0</horstretch>
     <verstretch>0</verstretch>
    </sizepolicy>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>606</width>
+    <height>358</height>
+   </size>
+  </property>
   <property name="maximumSize">
    <size>
-    <width>600</width>
-    <height>600</height>
+    <width>650</width>
+    <height>450</height>
    </size>
   </property>
   <property name="font">
@@ -235,6 +241,12 @@ QCheckBox::indicator:unchecked {
   <layout class="QVBoxLayout" name="lay_playblastManager">
    <item>
     <widget class="QGroupBox" name="gb_playblastInfo">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="font">
       <font>
        <family>Tahoma</family>
@@ -259,6 +271,9 @@ QGroupBox::title {
      <property name="title">
       <string>Playblast Info</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
      <layout class="QVBoxLayout" name="lay_info">
       <property name="spacing">
        <number>5</number>
@@ -276,35 +291,26 @@ QGroupBox::title {
        <number>12</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_3">
+       <layout class="QGridLayout" name="gridLayout" rowstretch="10,10" columnstretch="0,0,0,0" rowminimumheight="10,10" columnminimumwidth="0,0,0,0">
         <property name="leftMargin">
-         <number>10</number>
+         <number>22</number>
         </property>
         <property name="topMargin">
-         <number>10</number>
+         <number>6</number>
         </property>
         <property name="rightMargin">
-         <number>10</number>
+         <number>6</number>
         </property>
         <property name="bottomMargin">
+         <number>4</number>
+        </property>
+        <property name="horizontalSpacing">
+         <number>6</number>
+        </property>
+        <property name="verticalSpacing">
          <number>10</number>
         </property>
-        <item>
-         <widget class="QLabel" name="lb_project">
-          <property name="font">
-           <font>
-            <family>Tahoma</family>
-            <pointsize>14</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Project</string>
-          </property>
-         </widget>
-        </item>
-        <item>
+        <item row="0" column="3">
          <widget class="QLineEdit" name="le_project">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -323,28 +329,36 @@ QGroupBox::title {
           </property>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_4">
-        <property name="leftMargin">
-         <number>10</number>
-        </property>
-        <property name="topMargin">
-         <number>10</number>
-        </property>
-        <property name="rightMargin">
-         <number>10</number>
-        </property>
-        <property name="bottomMargin">
-         <number>10</number>
-        </property>
-        <item>
+        <item row="0" column="1">
+         <widget class="QLabel" name="lb_project">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>13</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="text">
+           <string>Project</string>
+          </property>
+          <property name="margin">
+           <number>6</number>
+          </property>
+          <property name="indent">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
          <widget class="QLabel" name="lb_artist">
           <property name="font">
            <font>
             <family>Tahoma</family>
-            <pointsize>14</pointsize>
+            <pointsize>13</pointsize>
             <weight>50</weight>
             <bold>false</bold>
            </font>
@@ -352,10 +366,19 @@ QGroupBox::title {
           <property name="text">
            <string>Artist</string>
           </property>
+          <property name="margin">
+           <number>6</number>
+          </property>
+          <property name="indent">
+           <number>0</number>
+          </property>
          </widget>
         </item>
-        <item>
+        <item row="1" column="3">
          <widget class="QLineEdit" name="le_artist">
+          <property name="enabled">
+           <bool>true</bool>
+          </property>
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
             <horstretch>0</horstretch>
@@ -376,72 +399,23 @@ QGroupBox::title {
        </layout>
       </item>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_2">
+       <layout class="QGridLayout" name="gridLayout_3">
         <property name="leftMargin">
-         <number>10</number>
+         <number>6</number>
         </property>
         <property name="topMargin">
-         <number>10</number>
+         <number>0</number>
         </property>
         <property name="rightMargin">
-         <number>10</number>
+         <number>6</number>
         </property>
         <property name="bottomMargin">
-         <number>10</number>
+         <number>6</number>
         </property>
-        <item>
-         <widget class="QLabel" name="lb_sequence">
-          <property name="font">
-           <font>
-            <family>Tahoma</family>
-            <pointsize>14</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Sequence</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLineEdit" name="le_sequence">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
-          <property name="font">
-           <font>
-            <family>Tahoma</family>
-            <pointsize>14</pointsize>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true">background-color: rgba(255, 193, 188, 70);</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QLabel" name="lb_shot">
-          <property name="font">
-           <font>
-            <family>Tahoma</family>
-            <pointsize>14</pointsize>
-            <weight>50</weight>
-            <bold>false</bold>
-           </font>
-          </property>
-          <property name="styleSheet">
-           <string notr="true"/>
-          </property>
-          <property name="text">
-           <string>Shot</string>
-          </property>
-         </widget>
-        </item>
-        <item>
+        <property name="spacing">
+         <number>6</number>
+        </property>
+        <item row="0" column="5">
          <widget class="QLineEdit" name="le_shot">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
@@ -460,6 +434,70 @@ QGroupBox::title {
           </property>
          </widget>
         </item>
+        <item row="0" column="3">
+         <widget class="QLineEdit" name="le_sequence">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>14</pointsize>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background-color: rgba(255, 193, 188, 70);</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QLabel" name="lb_shot">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>13</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <property name="text">
+           <string>Shot</string>
+          </property>
+          <property name="margin">
+           <number>6</number>
+          </property>
+          <property name="indent">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="lb_sequence">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>13</pointsize>
+            <weight>50</weight>
+            <bold>false</bold>
+           </font>
+          </property>
+          <property name="text">
+           <string>Sequence</string>
+          </property>
+          <property name="margin">
+           <number>6</number>
+          </property>
+          <property name="indent">
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
        </layout>
       </item>
      </layout>
@@ -474,6 +512,9 @@ QGroupBox::title {
        <weight>75</weight>
        <bold>true</bold>
       </font>
+     </property>
+     <property name="layoutDirection">
+      <enum>Qt::LeftToRight</enum>
      </property>
      <property name="styleSheet">
       <string notr="true">QGroupBox {
@@ -490,6 +531,12 @@ QGroupBox::title {
      </property>
      <property name="title">
       <string>Burn-in Overlays</string>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+     <property name="flat">
+      <bool>false</bool>
      </property>
      <layout class="QVBoxLayout" name="lay_burnins">
       <property name="spacing">
@@ -508,32 +555,53 @@ QGroupBox::title {
        <number>12</number>
       </property>
       <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_5">
+       <layout class="QGridLayout" name="gridLayout_2">
         <property name="leftMargin">
-         <number>10</number>
+         <number>6</number>
         </property>
         <property name="topMargin">
-         <number>10</number>
+         <number>15</number>
         </property>
         <property name="rightMargin">
-         <number>10</number>
+         <number>6</number>
         </property>
         <property name="bottomMargin">
-         <number>10</number>
+         <number>6</number>
         </property>
-        <item>
-         <widget class="QCheckBox" name="cb_artist">
+        <property name="horizontalSpacing">
+         <number>25</number>
+        </property>
+        <property name="verticalSpacing">
+         <number>0</number>
+        </property>
+        <item row="0" column="3">
+         <widget class="QCheckBox" name="cb_camera">
+          <property name="font">
+           <font>
+            <pointsize>-1</pointsize>
+           </font>
+          </property>
+          <property name="layoutDirection">
+           <enum>Qt::LeftToRight</enum>
+          </property>
+          <property name="text">
+           <string>Camera</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QCheckBox" name="cb_frameNumber">
           <property name="font">
            <font>
             <pointsize>-1</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>Artist</string>
+           <string>Frame number</string>
           </property>
          </widget>
         </item>
-        <item>
+        <item row="0" column="1">
          <widget class="QCheckBox" name="cb_shotName">
           <property name="font">
            <font>
@@ -548,63 +616,19 @@ QGroupBox::title {
           </property>
          </widget>
         </item>
-        <item>
-         <widget class="QCheckBox" name="cb_frameNumber">
+        <item row="0" column="0">
+         <widget class="QCheckBox" name="cb_artist">
           <property name="font">
            <font>
             <pointsize>-1</pointsize>
            </font>
           </property>
           <property name="text">
-           <string>Frame number</string>
+           <string>Artist</string>
           </property>
          </widget>
         </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout_6">
-        <property name="leftMargin">
-         <number>10</number>
-        </property>
-        <property name="topMargin">
-         <number>10</number>
-        </property>
-        <property name="rightMargin">
-         <number>10</number>
-        </property>
-        <property name="bottomMargin">
-         <number>10</number>
-        </property>
-        <item>
-         <spacer name="horizontalSpacer_2">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Preferred</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>40</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item>
-         <widget class="QCheckBox" name="cb_camera">
-          <property name="font">
-           <font>
-            <pointsize>-1</pointsize>
-           </font>
-          </property>
-          <property name="text">
-           <string>Camera</string>
-          </property>
-         </widget>
-        </item>
-        <item>
+        <item row="0" column="4">
          <widget class="QCheckBox" name="cb_date">
           <property name="font">
            <font>
@@ -615,22 +639,6 @@ QGroupBox::title {
            <string>Date</string>
           </property>
          </widget>
-        </item>
-        <item>
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Preferred</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>20</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
         </item>
        </layout>
       </item>
@@ -654,21 +662,21 @@ QGroupBox::title {
      <item>
       <widget class="QPushButton" name="btn_generatePlayblast">
        <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
        </property>
        <property name="maximumSize">
         <size>
-         <width>500</width>
+         <width>250</width>
          <height>100</height>
         </size>
        </property>
        <property name="font">
         <font>
          <family>Tahoma</family>
-         <pointsize>14</pointsize>
+         <pointsize>13</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -768,7 +776,7 @@ QGroupBox::title {
          <number>1</number>
         </property>
         <property name="text">
-         <string>a tool by Roberta Fischetti</string>
+         <string>by Roberta Fischetti</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -786,11 +794,14 @@ QGroupBox::title {
           <height>25</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Help: go to wiki</string>
+        </property>
         <property name="text">
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="playblast_manager_ui.qrc">
+         <iconset resource="playblastManagerUI.qrc">
           <normaloff>:/playblast/img/btn_help.png</normaloff>:/playblast/img/btn_help.png</iconset>
         </property>
        </widget>
@@ -814,7 +825,7 @@ QGroupBox::title {
   </layout>
  </widget>
  <resources>
-  <include location="playblast_manager_ui.qrc"/>
+  <include location="playblastManagerUI.qrc"/>
  </resources>
  <connections/>
 </ui>

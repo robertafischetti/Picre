@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>477</width>
-    <height>512</height>
+    <width>496</width>
+    <height>483</height>
    </rect>
   </property>
   <property name="maximumSize">
@@ -257,30 +257,25 @@ QGroupBox::title {
      <property name="title">
       <string>Movies Root</string>
      </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
        <layout class="QHBoxLayout" name="lay_moviesRoot">
         <item>
          <widget class="QLineEdit" name="le_moviesRoot">
+          <property name="font">
+           <font>
+            <family>Tahoma</family>
+            <pointsize>12</pointsize>
+           </font>
+          </property>
           <property name="styleSheet">
            <string notr="true">background-color: rgba(255, 193, 188, 70);</string>
           </property>
           <property name="readOnly">
            <bool>true</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="btn_refresh">
-          <property name="font">
-           <font>
-            <family>Tahoma</family>
-            <weight>75</weight>
-            <bold>true</bold>
-           </font>
-          </property>
-          <property name="text">
-           <string>Refresh</string>
           </property>
          </widget>
         </item>
@@ -316,22 +311,40 @@ QGroupBox::title {
       <string>Select Playblasts</string>
      </property>
      <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
       <property name="leftMargin">
        <number>12</number>
       </property>
       <property name="topMargin">
-       <number>12</number>
+       <number>20</number>
       </property>
       <property name="rightMargin">
        <number>12</number>
       </property>
       <item>
        <widget class="QTreeWidget" name="tw_playblastsTree">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="MinimumExpanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>444</width>
+          <height>239</height>
+         </size>
+        </property>
         <property name="font">
          <font>
           <family>Tahoma</family>
-          <pointsize>13</pointsize>
+          <pointsize>12</pointsize>
          </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
         </property>
         <property name="styleSheet">
          <string notr="true">/* ============================================================
@@ -520,6 +533,28 @@ QHeaderView::section {
         </column>
        </widget>
       </item>
+      <item>
+       <widget class="QLabel" name="tl_shotsSelected">
+        <property name="font">
+         <font>
+          <family>Tahoma</family>
+          <pointsize>13</pointsize>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::NoFrame</enum>
+        </property>
+        <property name="text">
+         <string>Selected 0 Shots</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
@@ -535,40 +570,29 @@ QHeaderView::section {
       <number>0</number>
      </property>
      <item>
-      <widget class="QLabel" name="tl_shotsSelected">
-       <property name="font">
-        <font>
-         <family>Tahoma</family>
-         <pointsize>14</pointsize>
-        </font>
+      <widget class="QPushButton" name="btn_createContextReview">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
        </property>
-       <property name="text">
-        <string>Selected 0 Shots</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <spacer name="horizontalSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeType">
-        <enum>QSizePolicy::Fixed</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
+       <property name="minimumSize">
         <size>
-         <width>100</width>
-         <height>20</height>
+         <width>0</width>
+         <height>0</height>
         </size>
        </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="btn_createContextReview">
+       <property name="maximumSize">
+        <size>
+         <width>250</width>
+         <height>100</height>
+        </size>
+       </property>
        <property name="font">
         <font>
          <family>Tahoma</family>
-         <pointsize>14</pointsize>
+         <pointsize>13</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -623,7 +647,7 @@ QHeaderView::section {
          <string notr="true">color: rgb(255, 193, 188);</string>
         </property>
         <property name="text">
-         <string>a tool by Roberta Fischetti</string>
+         <string>by Roberta Fischetti</string>
         </property>
         <property name="wordWrap">
          <bool>false</bool>
@@ -638,11 +662,14 @@ QHeaderView::section {
           <height>25</height>
          </size>
         </property>
+        <property name="toolTip">
+         <string>Help: go to wiki</string>
+        </property>
         <property name="text">
          <string/>
         </property>
         <property name="icon">
-         <iconset resource="playblast_reviewer_ui.qrc">
+         <iconset resource="playblastReviewerUI.qrc">
           <normaloff>:/reviewer/img/btn_help.png</normaloff>:/reviewer/img/btn_help.png</iconset>
         </property>
        </widget>
@@ -666,7 +693,7 @@ QHeaderView::section {
   </layout>
  </widget>
  <resources>
-  <include location="playblast_reviewer_ui.qrc"/>
+  <include location="playblastReviewerUI.qrc"/>
  </resources>
  <connections/>
 </ui>

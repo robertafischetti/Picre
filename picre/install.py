@@ -39,6 +39,8 @@ def install_picre_shelf() -> None:
     if not cmds.shelfLayout(SHELF_NAME, exists=True):
         cmds.shelfLayout(SHELF_NAME,parent=shelf_top_level)
 
+    print("Picre shelf tab installed successfully!")
+
 def install_manager() -> None:
     """Install the Playblast Manager shelf button."""
     # Remove existing button
@@ -52,8 +54,8 @@ def install_manager() -> None:
         label=MANAGER_TOOL,
         annotation="Open Playblast Manager",
         image=str(MANAGER_ICON_PATH),
-        command="""import playblast_manager.playblast_manager_ui 
-classVar = playblast_manager.playblast_manager_ui.PlayblastManagerUI()""",
+        command="""import picre.playblastManagerUI
+classVar = picre.playblastManagerUI.PlayblastManagerUI()""",
         sourceType="python"
     )
 
@@ -72,9 +74,9 @@ def install_reviewer() -> None:
         label=REVIEWER_TOOL,
         annotation="Open Playblast Reviewer",
         image=str(REVIEWER_ICON_PATH),
-        command="""import playblast_manager.playblast_reviewer_ui 
-classVar = playblast_manager.playblast_reviewer_ui.PlayblastReviewerUI()""",
+        command="""import picre.playblastReviewerUI
+classVar = picre.playblastReviewerUI.PlayblastReviewerUI()""",
         sourceType="python"
     )
 
-    print("Playblast In-Context Reviewer installed successfully!")
+    print("Playblast Reviewer installed successfully!")
