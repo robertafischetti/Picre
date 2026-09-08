@@ -1,11 +1,13 @@
 """---------------------------------------------------------------------------------------
- Module: playblast_reviewer_ui
+Module: playblast_reviewer_ui - this file is part of Picre
 
- Author = Roberta Fischetti
+License = Copyright (c) 2026 Roberta Fischetti
+This program is free software; you can redistribute it and/or modify it under
+the terms of the MIT License as published by the Open Source Initiative.
 
- Date = 2026-09-04
+Author = Roberta Fischetti - fischetti91@gmail.com
 
- Description = Playblast Reviewer UI made with Qt Designer.
+Date = 2026-09-08
 ---------------------------------------------------------------------------------------"""
 
 import os
@@ -14,8 +16,7 @@ from pathlib import Path
 
 from Qt import QtWidgets, QtGui, QtCompat, QtCore
 
-from playblast_manager.playblast_core import get_default_project_root
-from playblast_manager.context_review_core import scan_movies_folder, create_context_review
+from picreCore import get_default_project_root, scan_movies_folder, create_context_review
 
 
 # VARIABLES ------------------------------------------------------------------------------
@@ -57,15 +58,12 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
     # FUNCTIONS
     def set_movies_root(self) -> None:
         """Set the movies folder based on the Maya project."""
-
         project_root = Path(get_default_project_root())
         self.movies_path = project_root / "movies"
         self.wgReviewer.le_moviesRoot.setText(str(self.movies_path))
 
-
     def refresh_playblasts(self) -> None:
         """Scan the movies folder and populate the tree."""
-
         self.wgReviewer.tw_playblastsTree.clear()
 
         try:
@@ -77,10 +75,8 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
         for sequence in self.sequences:
             self.add_sequence_to_tree(sequence)
 
-
-    def add_sequence_to_tree(self, sequence):
+    def add_sequence_to_tree(self, sequence) -> None:
             """Add a sequence and its shots to the tree."""
-    
             sequence_item = QtWidgets.QTreeWidgetItem()
             sequence_item.setText(0, sequence.name)
             sequence_item.setFlags(sequence_item.flags() | QtCore.Qt.ItemIsUserCheckable)
@@ -94,10 +90,8 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
     
             sequence_item.setExpanded(True)
 
-
-    def add_shot_to_tree(self, sequence_item, shot):
+    def add_shot_to_tree(self, sequence_item, shot) -> None:
         """Add a shot and its versions to a sequence."""
-
         shot_item = QtWidgets.QTreeWidgetItem()
         shot_item.setText(0, shot.name)
         shot_item.setFlags(shot_item.flags() | QtCore.Qt.ItemIsUserCheckable)
@@ -116,10 +110,8 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
         # Put the combo box into column 1
         self.wgReviewer.tw_playblastsTree.setItemWidget(shot_item,1,version_combo)
 
-
-    def handle_item_changed(self, item, column):
+    def handle_item_changed(self, item, column) -> None:
         """Handle sequence and shot checkbox changes."""
-
         if column != 0:
             return
 
@@ -170,10 +162,8 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
 
         self.update_selected_shots_count()
 
-
-    def update_selected_shots_count(self):
+    def update_selected_shots_count(self) -> None:
         """Update the number of selected shots."""
-
         selected_count = 0
         tree = self.wgReviewer.tw_playblastsTree
 
@@ -188,10 +178,8 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
 
         self.wgReviewer.tl_shotsSelected.setText(f"Selected: {selected_count} shots")
 
-
     def get_selected_playblasts(self) -> list[Path]:
         """Return the movie paths selected in the tree."""
-
         selected_playblasts = []
         tree = self.wgReviewer.tw_playblastsTree
 
@@ -215,16 +203,14 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
         return selected_playblasts
 
 
-    def press_create_context_review(self):
+    def press_create_context_review(self) -> None:
         """Create a context review from the selected playblasts."""
-
         selected_playblasts = self.get_selected_playblasts()
 
         # Make sure the artist selected something.
         if not selected_playblasts:
-            QtWidgets.QMessageBox.warning(self.wgReviewer,"Playblast Reviewer",
-                                          "Please select at least one shot.",)
-
+            QtWidgets.QMessageBox.warning(
+                self.wgReviewer,"Playblast Reviewer","Please select at least one shot.",)
             return
 
         try:
@@ -241,10 +227,8 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
 
         self.show_success_message(output_path)
 
-
-    def show_success_message(self, output_path: Path):
+    def show_success_message(self, output_path: Path) -> None:
         """Show a success message after creating a context review."""
-
         message_box = QtWidgets.QMessageBox(self.wgReviewer)
         message_box.setWindowTitle("Context Review Created")
         message_box.setIcon(QtWidgets.QMessageBox.Information)
@@ -257,16 +241,12 @@ class PlayblastReviewerUI(QtWidgets.QWidget):
         if message_box.clickedButton() == open_folder_button:
             self.open_output_folder(output_path.parent)
 
-
-    def open_output_folder(self, folder_path: Path):
+    def open_output_folder(self, folder_path: Path) -> None:
         """Open a folder in the operating system file browser."""
+        QtGui.QDesktopServices.openUrl(QtCore.QUrl.fromLocalFile(str(folder_path)))
 
-        QtGui.QDesktopServices.openUrl(
-            QtCore.QUrl.fromLocalFile(str(folder_path)))
-
-
-    def press_help(self):
-            """
-            open wiki on Gitub when pressing the help button
-            """
-            webbrowser.open("https://github.com/robertafischetti/PythonAdvancedAssignments/wiki")
+    def press_help(self) -> None:
+        """
+        open wiki on Gitub when pressing the help button
+        """
+        webbrowser.open("https://github.com/robertafischetti/Picre/wiki")

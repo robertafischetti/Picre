@@ -1,12 +1,15 @@
 """---------------------------------------------------------------------------------------
- Module: config
+Module: config - this file is part of Picre
 
- Author = Roberta Fischetti
+License = Copyright (c) 2026 Roberta Fischetti
+This program is free software; you can redistribute it and/or modify it under
+the terms of the MIT License as published by the Open Source Initiative.
 
- Date = 2026-08-06
+Author = Roberta Fischetti - fischetti91@gmail.com
 
- Description = Load yaml file and expose settings.
+Date = 2026-09-08
 ---------------------------------------------------------------------------------------"""
+
 
 import yaml
 import platform
@@ -20,8 +23,6 @@ Created several configuration classes for the following benefits:
 - Autocomplete;
 - Type checking; 
 - Readability.
-
-Used a decorator to avoid writing a lot of repetitive code. 
 """
 @dataclass
 class FFmpegConfig:

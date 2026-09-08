@@ -1,21 +1,22 @@
 """---------------------------------------------------------------------------------------
- Module: playblast_manager_ui
+Module: playblast_manager_ui - this file is part of Picre
 
- Author = Roberta Fischetti
+License = Copyright (c) 2026 Roberta Fischetti
+This program is free software; you can redistribute it and/or modify it under
+the terms of the MIT License as published by the Open Source Initiative.
 
- Date = 2026-09-01
+Author = Roberta Fischetti - fischetti91@gmail.com
 
- Description = Playblast Manager UI designed with Qt Designer
+Date = 2026-09-08
 ---------------------------------------------------------------------------------------"""
 
 import os
-import sys
 import getpass
 import webbrowser
 
 from Qt import QtWidgets, QtGui, QtCompat
 
-from playblast_manager.playblast_core import generate_playblast, get_default_project_root
+from picreCore import generate_playblast, get_default_project_root
 
 
 # VARIABLES ------------------------------------------------------------------------------
@@ -85,6 +86,6 @@ class PlayblastManagerUI(QtWidgets.QWidget):
         """
         open wiki on Gitub when pressing the help button
         """
-        webbrowser.open("https://github.com/robertafischetti/PythonAdvancedAssignments/wiki")
+        webbrowser.open("https://github.com/robertafischetti/Picre/wiki")
 
 
