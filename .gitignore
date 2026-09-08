@@ -1,0 +1,28 @@
+
+## Python ##
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg
+*.pyc
+
+
+## Visual Studio / Visual Studio Code ##
+*.vs
+*.vscode
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Compiled Libs ##
+*.so
+*.dylib
+*.dll
+
+
+## macOS ##
+.DS_Store
+.AppleDouble
+.LSOverride
