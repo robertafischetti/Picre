@@ -1,0 +1,37 @@
+ffmpeg:
+  codec: "libx264"
+  pixel_format: "yuv420p"
+  crf: 23
+
+playblast:
+  folder_pattern: "{project}/movies/{sequence}/{shot}/"
+  filename_pattern: "{shot}"
+  version_padding: 3
+
+burnins:
+  corner_positions:
+    top_left: "x=40:y=40"
+    top_right: "x=w-tw-40:y=40"
+    bottom_left: "x=40:y=h-th-40"
+    bottom_center: "x=(w-tw)/2:y=h-th-40"
+    bottom_right: "x=w-tw-40:y=h-th-40"
+  
+  corner_fields:
+    shot_name: "top_left"
+    camera_name: "top_right"
+    artist: "bottom_left"
+    date: "bottom_center"
+    frame: "bottom_right"
+
+platforms:
+  Darwin:
+    ffmpeg_path: "/opt/homebrew/bin/ffmpeg"
+    font_path: "/System/Library/Fonts/Supplemental/Arial.ttf"
+
+  Windows:
+    ffmpeg_path: "C:/ffmpeg/bin/ffmpeg.exe"
+    font_path: "C:/Windows/Fonts/arial.ttf"
+
+  Linux:
+    ffmpeg_path: "/usr/bin/ffmpeg"
+    font_path: "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"

@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="reviewer">
+    <file>img/btn_help.png</file>
+  </qresource>
+</RCC>

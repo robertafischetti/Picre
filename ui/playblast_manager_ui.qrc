@@ -1,0 +1,5 @@
+<RCC>
+  <qresource prefix="playblast">
+    <file>img/btn_help.png</file>
+  </qresource>
+</RCC>
