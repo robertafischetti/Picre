@@ -16,7 +16,7 @@ import webbrowser
 
 from Qt import QtWidgets, QtGui, QtCompat
 
-from picreCore import generate_playblast, get_default_project_root
+from picre.picreCore import generate_playblast, get_default_project_root
 
 
 # VARIABLES ------------------------------------------------------------------------------

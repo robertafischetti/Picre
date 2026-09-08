@@ -16,7 +16,9 @@ import time
 import shutil
 import subprocess
 
-from Picre.config import config
+import maya.cmds as cmds
+
+from picre.config import config
 
 
 # VARIABLES ------------------------------------------------------------------------------

@@ -16,7 +16,7 @@ from pathlib import Path
 
 from Qt import QtWidgets, QtGui, QtCompat, QtCore
 
-from picreCore import get_default_project_root, scan_movies_folder, create_context_review
+from picre.picreCore import get_default_project_root, scan_movies_folder, create_context_review
 
 
 # VARIABLES ------------------------------------------------------------------------------

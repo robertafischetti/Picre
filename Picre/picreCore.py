@@ -20,8 +20,8 @@ from dataclasses import dataclass
 
 import maya.cmds as cmds
 
-import config
-import picreUtils
+from picre.config import config
+from picre import picreUtils
 
 # DATACLASSES ----------------------------------------------------------------------------
 @dataclass
