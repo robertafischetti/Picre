@@ -1,11 +1,13 @@
 """---------------------------------------------------------------------------------------
- Module: install
+Module: install - this file is part of Picre
 
- Author = Roberta Fischetti
+License = Copyright (c) 2026 Roberta Fischetti
+This program is free software; you can redistribute it and/or modify it under
+the terms of the MIT License as published by the Open Source Initiative.
 
- Date = 2026-09-03
+Author = Roberta Fischetti - fischetti91@gmail.com
 
- Description = Installs the Playblast Manager creating a Shelf Tab and a tool icon.
+Date = 2026-09-08
 ---------------------------------------------------------------------------------------"""
 
 from pathlib import Path
@@ -15,7 +17,7 @@ import maya.cmds as cmds
 
 
 # VARIABLES ------------------------------------------------------------------------------
-SHELF_NAME = "PicreShelf"
+SHELF_NAME = "Picre"
 
 MANAGER_TOOL = "PlayblastManager"
 REVIEWER_TOOL = "PlayblastReviewer"
@@ -37,10 +39,8 @@ def install_picre_shelf() -> None:
     if not cmds.shelfLayout(SHELF_NAME, exists=True):
         cmds.shelfLayout(SHELF_NAME,parent=shelf_top_level)
 
-
 def install_manager() -> None:
     """Install the Playblast Manager shelf button."""
-
     # Remove existing button
     if cmds.shelfButton(MANAGER_BUTTON_NAME, exists=True):
         cmds.deleteUI(MANAGER_BUTTON_NAME)
@@ -59,10 +59,8 @@ classVar = playblast_manager.playblast_manager_ui.PlayblastManagerUI()""",
 
     print("Playblast Manager installed successfully!")
 
-
 def install_reviewer() -> None:
-    """Install the Playblast In-Context Reviewer shelf button."""
-
+    """Install the Playblast Reviewer shelf button."""
     # Remove existing button
     if cmds.shelfButton(REVIEWER_BUTTON_NAME, exists=True):
         cmds.deleteUI(REVIEWER_BUTTON_NAME)
@@ -72,7 +70,7 @@ def install_reviewer() -> None:
         REVIEWER_BUTTON_NAME,
         parent=SHELF_NAME,
         label=REVIEWER_TOOL,
-        annotation="Open Playblast In-Context Reviewer",
+        annotation="Open Playblast Reviewer",
         image=str(REVIEWER_ICON_PATH),
         command="""import playblast_manager.playblast_reviewer_ui 
 classVar = playblast_manager.playblast_reviewer_ui.PlayblastReviewerUI()""",
